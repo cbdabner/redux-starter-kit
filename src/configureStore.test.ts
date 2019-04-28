@@ -18,6 +18,8 @@ describe('getDefaultMiddleware', () => {
   })
 
   it('returns an array with additional middleware in development', () => {
+    process.env.NODE_ENV = 'development'
+    
     const middleware = getDefaultMiddleware()
     expect(middleware).toContain(thunk)
     expect(middleware.length).toBeGreaterThan(1)
